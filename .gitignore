@@ -7,10 +7,29 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 dist
 dist-ssr
 *.local
+
+# next.js file
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
 
 # Editor directories and files
 .vscode/*

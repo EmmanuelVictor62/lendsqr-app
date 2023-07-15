@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -20,9 +20,17 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/utils/*": ["utils/*"],
+      "@/public/*": ["public/*"],
+      "@/state_manager/*": ["state_manager/*"],
+      "@/*": ["*"]
+    }
   },
-  "include": ["src", "pages/app.tsx", "pages/main.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "references": [
     {
       "path": "./tsconfig.node.json"
