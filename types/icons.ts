@@ -1,0 +1,16 @@
+export type IconNames =
+  | "appLogo"
+  | "users"
+  | "briefcase"
+  | "dashboard"
+  | "loan"
+  | "decisionModel"
+  | "savings"
+  | "fees"
+  | "transaction"
+  | "services"
+  | "settlements"
+  | "reports"
+  | "preferences"
+  | "auditLogs"
+  | "loginImage";
