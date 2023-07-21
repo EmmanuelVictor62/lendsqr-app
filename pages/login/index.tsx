@@ -3,8 +3,6 @@ import React from "react";
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
 
-import loginImage from "@/src/images/login_image.png";
-
 import styles from "./login.module.scss";
 interface loginPageProps {
   name?: string;
