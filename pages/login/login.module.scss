@@ -60,7 +60,6 @@
 
     &-subheading {
       color: #545f7d;
-      font-family: Avenir Next;
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
@@ -75,10 +74,9 @@
 
       &::placeholder {
         color: #545f7d;
-        font-family: Avenir Next;
         font-size: 14px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         line-height: normal;
       }
 
@@ -100,6 +98,7 @@
 
       & button {
         height: 48px;
+        font-family: Avenir;
       }
     }
   }
