@@ -1,0 +1,19 @@
+@import "../../styles/base/mixins";
+
+.input {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  &__label {
+    &-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 0px;
+    }
+  }
+}
