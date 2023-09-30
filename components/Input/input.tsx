@@ -20,6 +20,7 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = (props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const [field, meta] = useField(props);
 
   const inputType =
@@ -29,7 +30,7 @@ const Input: React.FC<InputProps> = (props) => {
   const isError = Boolean(meta.touched) && Boolean(meta.error);
   const isSuccess = Boolean(field.value) && Boolean(!meta.error);
 
-  const togglePasswordField = () => {
+  const handleTogglePasswordField = () => {
     setShowPassword(!showPassword);
   };
 
@@ -48,21 +49,24 @@ const Input: React.FC<InputProps> = (props) => {
         className={styles["input__container"]}
         data-success={isSuccess}
         data-error={isError}
+        data-focused={isFocused}
+        onFocus={() => setIsFocused(true)}
       >
         <input
           type={inputType}
           placeholder={props.placeholder}
           name={props.name}
           onChange={field.onChange}
-          value={field.value}
+          value={field.value as string}
           className={styles["input"]}
           data-variant={props.inputVariant}
+          onBlur={() => setIsFocused(true)}
         />
 
         {showToggleButton && (
           <button
             className={styles["input__toggle-button"]}
-            onClick={() => togglePasswordField()}
+            onClick={handleTogglePasswordField}
           >
             {showPassword ? "HIDE" : "SHOW"}
           </button>
@@ -70,7 +74,7 @@ const Input: React.FC<InputProps> = (props) => {
       </div>
 
       {isError && (
-        <p className={styles["input__error-message"]}>{meta.error} </p>
+        <p className={styles["input__error-message"]}>{meta.error}</p>
       )}
       {isSuccess && (
         <p className={styles["input__sucess-message"]}>{props.success} </p>
