@@ -30,29 +30,37 @@ const Input: React.FC<InputProps> = ({
   };
 
   const inputType =
-    type !== "password" ? type : showPassword ? "password" : "text";
+    type !== "password" ? type : showPassword ? "text" : "password";
+  const showToggleButton = type == "password";
 
   return (
     <div className={styles["input__wrapper"]}>
-      <div className={styles["input__label-container"]}>
-        {label && <label htmlFor="{name}">{label}</label>}
-        {required && <span className={styles["input__label-required"]}>*</span>}
-      </div>
+      {label && (
+        <div className={styles["input__label-container"]}>
+          {label && <label htmlFor="{name}">{label}</label>}
+          {required && (
+            <span className={styles["input__label-required"]}>*</span>
+          )}
+        </div>
+      )}
 
-      <div className={styles["input__container"]} data-variant={inputVariant}>
+      <div className={styles["input__container"]} data-required={required}>
         <input
           type={inputType}
           placeholder={placeholder}
-          required={required}
           name={name}
+          className={styles["input"]}
+          data-variant={inputVariant}
         />
 
-        <button
-          className={styles["input__toggle-button"]}
-          onClick={() => togglePasswordField()}
-        >
-          {showPassword ? "HIDE" : "SHOW"}
-        </button>
+        {showToggleButton && (
+          <button
+            className={styles["input__toggle-button"]}
+            onClick={() => togglePasswordField()}
+          >
+            {showPassword ? "HIDE" : "SHOW"}
+          </button>
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
+import Input from "@/components/Input/input";
 
 import styles from "./login.module.scss";
 interface loginPageProps {
@@ -33,15 +34,19 @@ const LoginPage: React.FC<loginPageProps> = () => {
           </div>
           <div className={styles["login-page__form-container"]}>
             <div className={styles["login-page__form-input-container"]}>
-              <input
-                type="text"
-                className={styles["login-page__form-input"]}
+              <Input
+                type="email"
                 placeholder="Email"
+                name="email"
+                required={true}
+                inputVariant="large"
               />
-              <input
+              <Input
                 type="password"
                 placeholder="Password"
-                className={styles["login-page__form-input"]}
+                name="password"
+                required={true}
+                inputVariant="large"
               />
             </div>
 
