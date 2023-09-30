@@ -8,7 +8,7 @@ interface ButtonProps {
   label: string;
   variant?: "primary" | "secondary";
   buttonStyle?: React.CSSProperties;
-  handleClickEvent: () => void;
+  handleClickEvent?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({

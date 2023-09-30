@@ -152,6 +152,10 @@ textarea {
   display: none;
 }
 
+input:-internal-autofill-selected {
+  background-color: initial !important;
+}
+
 /* Remove default padding */
 ul,
 ol {
