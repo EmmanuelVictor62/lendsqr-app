@@ -1,7 +1,39 @@
 @font-face {
   font-family: "Avenir";
   src: local("Avenir"),
-    url("../../public/assests/avenir_ff/AvenirLTStd-Black.otf") format(truetype),
-    url("../../public/assests/avenir_ff/AvenirLTStd-Book.otf") format(truetype),
-    url("../../public/assests/avenir_ff/AvenirLTStd-Roman.otf") format(truetype);
+    url("../../public/assests/avenir/AvenirLight.ttf") format(truetype);
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"),
+    url("../../public/assests/avenir/AvenirMedium.ttf") format(truetype);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"),
+    url("../../public/assests/avenir/AvenirMediumItalic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"),
+    url("../../public/assests/avenir/AvenirSemiBold.ttf") format(truetype);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"),
+    url("../../public/assests/avenir/AvenirBold.ttf") format(truetype);
+  font-weight: bold;
+  font-style: normal;
 }

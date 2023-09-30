@@ -39,7 +39,7 @@ const LoginPage: React.FC<loginPageProps> = () => {
                 placeholder="Email"
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 className={styles["login-page__form-input"]}
               />
