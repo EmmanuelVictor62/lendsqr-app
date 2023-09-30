@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styles from "./input.module.scss";
 
-type InputType = "text" | "password" | "number" | "email" | "submit";
+type InputType = "text" | "password" | "number" | "email";
 type InputVariant = "small" | "medium" | "large";
 
 interface InputProps {
