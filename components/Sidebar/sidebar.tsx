@@ -12,7 +12,7 @@ interface SidebarProps {
   link?: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ link }) => {
+const Sidebar: React.FC<SidebarProps> = () => {
   return (
     <div className={styles["sidebar"]}>
       {sidebarRoutes?.map((element, index) => {

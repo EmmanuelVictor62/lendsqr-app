@@ -1,3 +1,10 @@
+const path = require("path");
+
 module.exports = {
-  /* Next.js configuration options */
+  reactStrictMode: true,
+  swcMinify: true,
+  images: { domains: [""] },
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
 };

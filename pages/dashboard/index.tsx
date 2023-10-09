@@ -8,7 +8,7 @@ interface DashboardProps {
   name?: string;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ name }) => {
+const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <div className={styles["dashboard"]}>
       <Sidebar />
