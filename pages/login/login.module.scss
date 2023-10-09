@@ -55,6 +55,7 @@
         display: flex;
         flex-direction: column;
         row-gap: 10px;
+        margin-bottom: 20px;
       }
     }
 
@@ -63,23 +64,10 @@
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
+      font-family: Avenir;
     }
 
     &-input {
-      width: 447px;
-      padding: 18px 14px;
-      @include border-radius(5px);
-      border: 2px solid rgba(84, 95, 125, 0.15);
-      background: #fff;
-
-      &::placeholder {
-        color: #545f7d;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-      }
-
       &-container {
         display: flex;
         flex-direction: column;
@@ -91,6 +79,7 @@
       display: flex;
       flex-direction: column;
       row-gap: 30px;
+      width: 447px;
     }
 
     &-button {

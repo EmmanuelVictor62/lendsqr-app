@@ -1,4 +1,6 @@
-@import "./mixins";
+@import "../../styles/variables";
+@import "../../styles/base/font";
+@import "../../styles/base/mixins";
 
 :root {
   font-size: 1rem;
@@ -6,7 +8,7 @@
   -webkit-box-sizing: border-box;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  font-family: $Avenir;
+  font-family: $WorkSans;
   /* 2 */
 }
 
@@ -25,7 +27,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: $Avenir;
+  font-family: $WorkSans;
 }
 
 main {
@@ -152,6 +154,10 @@ textarea {
   display: none;
 }
 
+input:-internal-autofill-selected {
+  background-color: initial !important;
+}
+
 /* Remove default padding */
 ul,
 ol {
@@ -178,7 +184,7 @@ dd {
 }
 
 p {
-  font-family: $Avenir;
+  font-family: $WorkSans;
   display: block;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -192,7 +198,7 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-family: $Avenir;
+  font-family: $WorkSans;
 }
 
 /* Remove list styles on ul, ol */
