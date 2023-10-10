@@ -1,18 +1,11 @@
 import React from "react";
-import Link from "next/link";
 
-import Icon from "../Icon";
-
-import { IconNames } from "@/types/icons";
+import ActiveLink from "@/components/Link";
 import { sidebarRoutes } from "@/util/routes";
 
 import styles from "./sidebar.module.scss";
 
-interface SidebarProps {
-  link?: string;
-}
-
-const Sidebar: React.FC<SidebarProps> = () => {
+const Sidebar: React.FC = () => {
   return (
     <div className={styles["sidebar"]}>
       {sidebarRoutes?.map((element, index) => {
@@ -26,15 +19,16 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <ul className={styles["sidebar__content-children-wrapper"]}>
               {element.children?.map((children, index) => {
                 return (
-                  <Link href={children.path}>
-                    <li
-                      className={styles["sidebar-content-children-link"]}
-                      key={index + 1}
-                    >
-                      <Icon icon={children.icon as IconNames} />
-                      {children.name}
-                    </li>
-                  </Link>
+                  <li
+                    className={styles["sidebar__content-children-link-wrapper"]}
+                    key={index + 1}
+                  >
+                    <ActiveLink
+                      path={children.path}
+                      iconPath={children.icon}
+                      iconName={children.name}
+                    />
+                  </li>
                 );
               })}
             </ul>
