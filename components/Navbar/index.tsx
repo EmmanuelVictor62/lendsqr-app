@@ -8,7 +8,7 @@ interface NavbarProps {
   userName?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ userName }) => {
+const Navbar: React.FC<NavbarProps> = () => {
   return (
     <header className={styles["navbar"]}>
       <div className={styles["navbar__logo-container"]}>
