@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+@import "../../styles/base/mixins";
+
+.user-card {
+  width: 240px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid $col-grey-3;
+  background: $col-white;
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  @include border-radius(4px);
+
+  &__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: $col-grey-1;
+  }
+}

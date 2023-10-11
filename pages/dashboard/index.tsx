@@ -1,7 +1,6 @@
 import React from "react";
 
-import Sidebar from "@/components/Sidebar/sidebar";
-import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
 
 import styles from "./dashboard.module.scss";
 
@@ -11,10 +10,11 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = () => {
   return (
-    <div className={styles["dashboard"]}>
-      <Navbar userName="Adedeji" />
-      <Sidebar />
-    </div>
+    <Layout>
+      <div className={styles["dashboard"]}>
+        <h1 className={styles["dashboard__heading"]}>Users</h1>
+      </div>
+    </Layout>
   );
 };
 

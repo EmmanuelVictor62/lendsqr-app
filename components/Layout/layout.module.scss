@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+@import "../../styles/base/mixins";
+
+.main {
+  &__wrapper {
+    padding: 90px 0px 0px 290px;
+    background-color: $col-blue-5;
+    height: 100vh;
+  }
+}
