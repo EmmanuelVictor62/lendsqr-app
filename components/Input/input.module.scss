@@ -1,8 +1,10 @@
 @import "../../styles/base/mixins";
+@import "../../styles/variables";
+
 .input {
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: $col-white;
   font-size: 14px;
   border: none;
   @include border-radius(5px);
@@ -30,10 +32,10 @@
     border: 1px solid rgba(84, 95, 125, 0.15);
     @include border-radius(5px);
     &[data-success="true"] {
-      border: 1px solid green;
+      border: 1px solid $col-success-1;
     }
     &[data-error="true"] {
-      border: 1px solid #d32f2f;
+      border: 1px solid $col-error-1;
     }
     &[data-focused="true"] {
       border: 1px solid #f48322;
@@ -50,7 +52,7 @@
 
   &__label {
     font-weight: 500;
-    color: #545f7d;
+    color: $col-grey-1;
     font-size: 14px;
     &-container {
       display: flex;
@@ -63,7 +65,7 @@
     position: absolute;
     right: 16px;
     padding-right: 20px;
-    color: #39cdcc;
+    color: $col-blue-1;
     text-align: center;
     font-family: Avenir;
     font-size: 12px;
@@ -79,7 +81,7 @@
   }
   &__success-message {
     font-size: 12px;
-    color: green;
+    color: $col-success-1;
     font-weight: normal;
     text-align: flex-start;
   }

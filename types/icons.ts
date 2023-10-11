@@ -13,4 +13,5 @@ export type IconNames =
   | "reports"
   | "preferences"
   | "auditLogs"
-  | "loginImage";
+  | "loginImage"
+  | "search";

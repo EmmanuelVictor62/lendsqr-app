@@ -3,13 +3,13 @@ export const sidebarRoutes = [
     name: "Home",
     children: [
       {
-        name: "Dashoard",
-        path: "/",
+        name: "Dashboard",
+        path: "/dashboard",
         icon: "dashboard",
       },
       {
         name: "Users",
-        path: "/",
+        path: "/dashboard/users",
         icon: "users",
       },
       {
