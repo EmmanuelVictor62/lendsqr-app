@@ -14,4 +14,6 @@ export type IconNames =
   | "preferences"
   | "auditLogs"
   | "loginImage"
-  | "search";
+  | "search"
+  | "bell"
+  | "caretDown";
