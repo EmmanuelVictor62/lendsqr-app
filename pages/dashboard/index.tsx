@@ -12,7 +12,7 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <div className={styles["dashboard"]}>
-      <Navbar />
+      <Navbar userName="Adedeji" />
       <Sidebar />
     </div>
   );
