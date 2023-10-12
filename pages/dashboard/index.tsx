@@ -23,20 +23,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             Add Users
           </button>
         </div>
-        {/* <div className={styles["dashboard__card-wrapper"]}>
-          {userCardContent.map((card, index) => {
-            return (
-              <div className={styles["dashboard__card"]} key={index + 1}>
-                <UserCard
-                  iconName={card.iconName}
-                  cardName={card.cardName}
-                  cardNumber={card.cardNumber}
-                  iconBackground={card.iconBackground}
-                />
-              </div>
-            );
-          })}
-        </div> */}
+
         <div className={styles["dashboard__users-table-card-wrapper"]}>
           <UsersTable users={usersMockData} />
         </div>
