@@ -5,11 +5,31 @@
   padding: 30px 60px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+  height: calc(100vh - 82px);
 
   &__heading {
     font-size: 24px;
     font-weight: 500;
     color: $col-blue-2;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &-button {
+      padding: 10px 15px;
+      color: #fff;
+      font-size: 14px;
+      @include border-radius(8px);
+      background-color: $col-blue-4;
+    }
+  }
+  &__users-table-card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    height: 90%;
   }
 }

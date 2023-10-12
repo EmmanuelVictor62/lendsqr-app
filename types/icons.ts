@@ -16,4 +16,9 @@ export type IconNames =
   | "loginImage"
   | "search"
   | "bell"
-  | "caretDown";
+  | "caretDown"
+  | "usersIcon"
+  | "activeUsers"
+  | "userSavings"
+  | "filter"
+  | "ellipse";
