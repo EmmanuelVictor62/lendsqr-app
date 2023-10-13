@@ -25,4 +25,5 @@ export type IconNames =
   | "eye"
   | "blacklistUser"
   | "activateUser"
-  | "arrowLeft";
+  | "arrowLeft"
+  | "user";

@@ -58,7 +58,9 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
       <div className={styles["user-details__preview-wrapper"]}>
         <div className={styles["user-details__preview-content-container"]}>
           <div className={styles["user-details__preview-image-container"]}>
-            <div className={styles["user-details__preview-image"]}></div>
+            <div className={styles["user-details__preview-image"]}>
+              <Icon icon="user" />
+            </div>
           </div>
           <div className={styles["user-details__preview-name-container"]}>
             <h2 className={styles["user-details__preview-name"]}>
