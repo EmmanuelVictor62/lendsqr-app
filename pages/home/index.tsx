@@ -8,6 +8,7 @@ import Dashboard from "./Dashboard/index";
 import Users from "./Users";
 
 import styles from "./home.module.scss";
+import UserDetails from "./UserDetails";
 
 const Home: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const Home: React.FC = () => {
             <Routes>
               <Route path="/home" element={<Dashboard />} />
               <Route path="/home/users" element={<Users />} />
+              <Route path="/home/users/details/:id" element={<UserDetails />} />
               <Route path="/home/guarantors" element={<p>Guarantors</p>} />
               <Route path="/home/services" element={<p>Services</p>} />
             </Routes>

@@ -1,7 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
-import UsersTable from "../Users/UsersTable";
+import UsersTable from "./UsersTable";
+import Icon from "@/components/Icon";
 
 import { usersMockData } from "@/util/constants";
 
@@ -12,10 +13,10 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
-  const handleNavigateToUserDetails = () => {
-    router.push("/dashboard/users");
+  const handleNavigateToUserDetails = (userId: string) => {
+    navigate(`/home/users/details/:${userId}`);
   };
 
   return (
@@ -27,11 +28,49 @@ const Dashboard: React.FC<DashboardProps> = () => {
         </button>
       </div>
 
-      <div className={styles["dashboard__users-table-card-wrapper"]}>
-        <UsersTable
-          users={usersMockData}
-          handleNavigateToUserDetails={() => handleNavigateToUserDetails()}
-        />
+      <div className={styles["dashboard__users-table-wrapper"]}>
+        <div className={styles["dashboard__users-table"]}>
+          <div className={styles["dashboard__users-table-heading-container"]}>
+            <button className={styles["dashboard__users-table-heading"]}>
+              Organization
+              <Icon icon="filter" />
+            </button>
+            <button className={styles["dashboard__users-table-heading"]}>
+              Username
+              <Icon icon="filter" />
+            </button>
+            <button className={styles["dashboard__users-table-heading"]}>
+              Email
+              <Icon icon="filter" />
+            </button>
+            <button className={styles["dashboard__users-table-heading"]}>
+              Phone Number
+              <Icon icon="filter" />
+            </button>
+            <button className={styles["dashboard__users-table-heading"]}>
+              Date Joined
+              <Icon icon="filter" />
+            </button>
+            <button className={styles["dashboard__users-table-heading"]}>
+              Status
+              <Icon icon="filter" />
+            </button>
+          </div>
+          <ul className={styles["dashboard__users-table-card-wrapper"]}>
+            {usersMockData?.map((user, index) => {
+              return (
+                <div key={index + 1}>
+                  <UsersTable
+                    user={user}
+                    handleNavigateToUserDetails={() =>
+                      handleNavigateToUserDetails(user?.id)
+                    }
+                  />
+                </div>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );

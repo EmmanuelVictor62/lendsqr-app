@@ -1,4 +1,4 @@
-export type userTableCardType = Array<{
+export type userTableCardType = {
   id: string | undefined | null;
   organization: string | undefined | null;
   username: string | undefined | null;
@@ -6,4 +6,4 @@ export type userTableCardType = Array<{
   phoneNumber: string | undefined | null;
   dateJoined: string | undefined | null;
   status: string | undefined | null;
-}>;
+};
