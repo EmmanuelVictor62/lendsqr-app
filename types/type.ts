@@ -8,7 +8,4 @@ export type userTableCardType = {
   status: string | undefined | null;
 };
 
-export type TabListType = Array<{
-  name: string | undefined | null;
-  activeTab?: string | undefined | null;
-}>;
+export type TabHeaderType = "General Details" | "Documents" | "Loans";

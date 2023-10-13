@@ -2,26 +2,36 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Icon from "@/components/Icon";
-import { userDetailsTabHeader } from "@/util/constants";
+import Tab from "@/components/Tab";
+
+import GeneralDetails from "./GeneralDetails";
+import { TabHeaderType } from "@/types/type";
 
 import styles from "./user-details.module.scss";
-import Tab from "@/components/Tab";
 interface UserDetailsProps {
   name?: string;
 }
 
 const UserDetails: React.FC<UserDetailsProps> = () => {
-  const [activeTab, setActiveTab] = useState<number>(1);
-
-  const handleActiveTab = (tabIndex: number) => {
-    setActiveTab(tabIndex);
-  };
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const navigate = useNavigate();
 
   const handleBackToDashboard = () => {
     navigate("/home");
   };
+
+  const handleActiveTab = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+  };
+
+  const TabList: Record<TabHeaderType, JSX.Element> = {
+    "General Details": <GeneralDetails />,
+    Documents: <p>Add a new document</p>,
+    Loans: <p>This is the loan tab</p>,
+  };
+
+  const tabContent = Object.values(TabList);
 
   return (
     <div className={styles["user-details__wrapper"]}>
@@ -69,11 +79,15 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
         </div>
         <div className={styles["user-details__preview-tab-container"]}>
           <Tab
-            tabList={userDetailsTabHeader}
+            tabList={TabList}
             activeTab={activeTab}
             handleActiveTab={handleActiveTab}
           />
         </div>
+      </div>
+
+      <div className={styles["user-details__info-wrapper"]}>
+        {tabContent[activeTab]}
       </div>
     </div>
   );

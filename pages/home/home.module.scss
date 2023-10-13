@@ -6,5 +6,7 @@
     padding: 110px 60px 30px 350px;
     height: 100vh;
     background-color: $col-blue-5;
+    overflow: auto;
+    @include hide-scrollbar;
   }
 }
