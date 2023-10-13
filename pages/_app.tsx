@@ -10,7 +10,7 @@ import "../styles/style.scss";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <div>
+      <div suppressHydrationWarning>
         {typeof window === "undefined" ? null : (
           <>
             <Head>

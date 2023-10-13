@@ -1,3 +1,11 @@
+export const userDetailsTabHeader = [
+  {
+    name: "General Details",
+  },
+  {
+    name: "Documents",
+  },
+];
 export const userCardContent = [
   {
     iconName: "usersIcon",

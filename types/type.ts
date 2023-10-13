@@ -7,3 +7,8 @@ export type userTableCardType = {
   dateJoined: string | undefined | null;
   status: string | undefined | null;
 };
+
+export type TabListType = Array<{
+  name: string | undefined | null;
+  activeTab?: string | undefined | null;
+}>;
