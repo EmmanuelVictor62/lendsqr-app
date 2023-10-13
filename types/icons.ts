@@ -21,4 +21,7 @@ export type IconNames =
   | "activeUsers"
   | "userSavings"
   | "filter"
-  | "ellipse";
+  | "ellipse"
+  | "eye"
+  | "blacklistUser"
+  | "activateUser";

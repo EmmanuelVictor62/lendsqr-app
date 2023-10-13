@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Icon from "@/components/Icon";
 import { userTableCardType } from "@/types/type";
@@ -9,7 +9,36 @@ interface UsersTableProps {
   users: userTableCardType;
 }
 
+export const DropdownComponent: React.FC = () => {
+  return (
+    <ul className={styles["user-table__dropdown"]}>
+      <li className={styles["user-table__dropdown-item"]}>
+        <Icon icon="eye" />
+        <p className={styles["user-table__dropdown-item-name"]}>View Details</p>
+      </li>
+      <li className={styles["user-table__dropdown-item"]}>
+        <Icon icon="blacklistUser" />
+        <p className={styles["user-table__dropdown-item-name"]}>
+          Blacklist User
+        </p>
+      </li>
+      <li className={styles["user-table__dropdown-item"]}>
+        <Icon icon="activateUser" />
+        <p className={styles["user-table__dropdown-item-name"]}>
+          Activate User
+        </p>
+      </li>
+    </ul>
+  );
+};
+
 const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
+  const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
+
+  const handleDropdownToggle = (id: string) => {
+    setToggleDropdown(!toggleDropdown);
+  };
+
   return (
     <div className={styles["user-table"]}>
       <div className={styles["user-table__heading-container"]}>
@@ -64,10 +93,15 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
                 {user?.status}
               </div>
 
-              <div className={styles["user-table-card__dropdown-container"]}>
-                <button className={styles["user-table-card__dropdown-icon"]}>
+              <div className={styles["user-table__dropdown-container"]}>
+                <button
+                  className={styles["user-table__dropdown-icon"]}
+                  onClick={() => handleDropdownToggle(user?.status!)}
+                >
                   <Icon icon="ellipse" />
                 </button>
+
+                {toggleDropdown ? <DropdownComponent /> : null}
               </div>
             </li>
           );

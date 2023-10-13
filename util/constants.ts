@@ -27,6 +27,7 @@ export const userCardContent = [
 
 export const usersMockData = [
   {
+    id: "12345678",
     organization: "Lendsqr",
     username: "Adedeji",
     email: "adedeji@lendqr.com",
@@ -35,6 +36,7 @@ export const usersMockData = [
     status: "Inactive",
   },
   {
+    id: "12345679",
     organization: "Lendsqr",
     username: "John Doe",
     email: "johndoe@lendqr.com",
@@ -43,6 +45,7 @@ export const usersMockData = [
     status: "Active",
   },
   {
+    id: "12345658",
     organization: "TechCorp",
     username: "Alice Johnson",
     email: "alice@techcorp.com",
@@ -51,6 +54,7 @@ export const usersMockData = [
     status: "Active",
   },
   {
+    id: "12345378",
     organization: "FinancePro",
     username: "Bob Smith",
     email: "bob@financepro.com",
@@ -59,6 +63,7 @@ export const usersMockData = [
     status: "Inactive",
   },
   {
+    id: "12349678",
     organization: "Lendsqr",
     username: "Emily Davis",
     email: "emily@lendqr.com",
@@ -67,6 +72,7 @@ export const usersMockData = [
     status: "Active",
   },
   {
+    id: "123456708",
     organization: "TechCorp",
     username: "David Wilson",
     email: "david@techcorp.com",
@@ -75,6 +81,7 @@ export const usersMockData = [
     status: "Pending",
   },
   {
+    id: "1234567908",
     organization: "Lendsqr",
     username: "Emily Davis",
     email: "emily@lendqr.com",
@@ -83,6 +90,7 @@ export const usersMockData = [
     status: "Active",
   },
   {
+    id: "1234532678",
     organization: "TechCorp",
     username: "David Wilson",
     email: "david@techcorp.com",
