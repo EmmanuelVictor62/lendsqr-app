@@ -7,12 +7,22 @@ import styles from "./users-table.module.scss";
 
 interface UsersTableProps {
   users: userTableCardType;
+  handleNavigateToUserDetails: () => void;
+  handleDropdownToggle?: () => void;
+}
+interface UsersTableCardDropdown {
+  handleItemClick: () => void;
 }
 
-export const DropdownComponent: React.FC = () => {
+export const DropdownComponent: React.FC<UsersTableCardDropdown> = ({
+  handleItemClick,
+}) => {
   return (
     <ul className={styles["user-table__dropdown"]}>
-      <li className={styles["user-table__dropdown-item"]}>
+      <li
+        className={styles["user-table__dropdown-item"]}
+        onClick={() => handleItemClick()}
+      >
         <Icon icon="eye" />
         <p className={styles["user-table__dropdown-item-name"]}>View Details</p>
       </li>
@@ -32,11 +42,16 @@ export const DropdownComponent: React.FC = () => {
   );
 };
 
-const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
+const UsersTable: React.FC<UsersTableProps> = ({
+  users,
+  handleNavigateToUserDetails,
+  // handleDropdownToggle,
+}) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
   const handleDropdownToggle = (id: string) => {
     setToggleDropdown(!toggleDropdown);
+    console.log(id);
   };
 
   return (
@@ -96,12 +111,16 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
               <div className={styles["user-table__dropdown-container"]}>
                 <button
                   className={styles["user-table__dropdown-icon"]}
-                  onClick={() => handleDropdownToggle(user?.status!)}
+                  onClick={() => handleDropdownToggle(user?.id!)}
                 >
                   <Icon icon="ellipse" />
                 </button>
 
-                {toggleDropdown ? <DropdownComponent /> : null}
+                {toggleDropdown ? (
+                  <DropdownComponent
+                    handleItemClick={() => handleNavigateToUserDetails()}
+                  />
+                ) : null}
               </div>
             </li>
           );
