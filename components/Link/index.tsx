@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { NavLink, useLocation } from "react-router-dom";
 
 import Icon from "../Icon";
 import { IconNames } from "@/types/icons";
@@ -18,11 +17,11 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
   iconPath,
   iconName,
 }) => {
-  const router = useRouter();
-  const isActivePath = Boolean(router.pathname === path);
+  const location = useLocation();
+  const isActivePath = Boolean(location.pathname === path);
 
   return (
-    <Link href={path}>
+    <NavLink to={path}>
       <div
         className={`${styles["link"]} ${
           isActivePath ? styles["link__active"] : ""
@@ -31,7 +30,7 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
         <Icon icon={iconPath as IconNames} />
         {iconName}
       </div>
-    </Link>
+    </NavLink>
   );
 };
 

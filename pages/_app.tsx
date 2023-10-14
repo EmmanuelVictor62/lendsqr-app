@@ -10,11 +10,17 @@ import "../styles/style.scss";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <div>
-        <Head>
-          <title>Lendsqr</title>
-        </Head>
-        <Component {...pageProps} />
+      <div suppressHydrationWarning>
+        {typeof window === "undefined" ? null : (
+          <>
+            <Head>
+              <title>Lendsqr</title>
+              <link rel="icon" type="image/png" href="/logo.svg" />
+            </Head>
+
+            <Component {...pageProps} />
+          </>
+        )}
       </div>
     </Provider>
   );

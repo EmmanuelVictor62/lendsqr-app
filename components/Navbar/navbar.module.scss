@@ -6,13 +6,14 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  height: 90px;
+  height: 80px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: $col-white;
   filter: drop-shadow(3px 0px 20px rgba(0, 0, 0, 0.04));
+  @include z-index(overlay);
 
   &__logo-container {
     & span {

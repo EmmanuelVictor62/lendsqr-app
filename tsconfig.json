@@ -26,6 +26,8 @@
       "@/components/*": ["components/*"],
       "@/utils/*": ["utils/*"],
       "@/public/*": ["public/*"],
+      "@/slices/*": ["slices/*"],
+      "@/thunks/*": ["thunks/*"],
       "@/src/*": ["src/*"],
       "@/state_manager/*": ["state_manager/*"],
       "@/*": ["*"]

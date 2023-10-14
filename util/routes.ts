@@ -4,12 +4,12 @@ export const sidebarRoutes = [
     children: [
       {
         name: "Dashboard",
-        path: "/dashboard",
+        path: "/home",
         icon: "dashboard",
       },
       {
         name: "Users",
-        path: "/dashboard/users",
+        path: "/home/users",
         icon: "users",
       },
       {
