@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 import Icon from "@/components/Icon";
-import { userTableCardType } from "@/types/type";
+import { userType } from "@/types/type";
 
 import styles from "./users-table.module.scss";
 
 interface UsersTableProps {
-  user: userTableCardType;
+  user: userType;
   handleNavigateToUserDetails: () => void;
   handleDropdownToggle?: () => void;
 }
@@ -57,8 +57,8 @@ const UsersTable: React.FC<UsersTableProps> = ({
       <p className={styles["user-table__card-organization"]}>
         {user?.organization}
       </p>
-      <p className={styles["user-table__card-username"]}>{user?.username}</p>
-      <p className={styles["user-table__card-email"]}>{user?.email}</p>
+      <p className={styles["user-table__card-username"]}>{user?.userName}</p>
+      <p className={styles["user-table__card-email"]}>{user?.officeEmail}</p>
       <p className={styles["user-table__card-phone-no"]}>{user?.phoneNumber}</p>
       <p className={styles["user-table__card-date-joined"]}>
         {user?.dateJoined}

@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
 
 import Sidebar from "@/components/Sidebar/sidebar";
 import Navbar from "@/components/Navbar";
 
 import Dashboard from "./Dashboard/index";
 import Users from "./Users";
-
-import styles from "./home.module.scss";
 import UserDetails from "./UserDetails";
 
+import { listAllUsersThunk } from "@/thunks/user";
+
+import styles from "./home.module.scss";
+
 const Home: React.FC = () => {
+  const dispatch = useDispatch<Dispatch<any>>();
+
+  useEffect(() => {
+    dispatch(listAllUsersThunk());
+  }, [dispatch]);
+
   return (
     <div className={styles["home"]}>
       <Router>

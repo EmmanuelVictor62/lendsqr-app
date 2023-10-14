@@ -2,8 +2,11 @@ import React from "react";
 
 import styles from "./general-details.module.scss";
 
+type DetailsType = {
+  id: string;
+};
 interface DetailsProps {
-  details?: {};
+  details?: DetailsType;
 }
 
 const GeneralDetails: React.FC<DetailsProps> = () => {

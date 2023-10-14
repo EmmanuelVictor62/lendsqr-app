@@ -2,8 +2,9 @@ import React from "react";
 
 import styles from "./tab.module.scss";
 
+type TabType = Record<string, JSX.Element>;
 interface TabProps {
-  tabList: {};
+  tabList: TabType;
   activeTab?: number;
   handleActiveTab: (tabIndex: number) => void;
 }

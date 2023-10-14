@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
 
 import UsersTable from "./UsersTable";
 import Icon from "@/components/Icon";
 
-import { usersMockData } from "@/util/constants";
+import { userSlice } from "@/state_manager/selectors";
 
 import styles from "./dashboard.module.scss";
 
@@ -13,11 +15,16 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = () => {
+  const dispatch = useDispatch<Dispatch<any>>();
   const navigate = useNavigate();
+
+  const { loading, users } = useSelector(userSlice);
 
   const handleNavigateToUserDetails = (userId: string) => {
     navigate(`/home/users/details/:${userId}`);
   };
+
+  console.log(loading, dispatch);
 
   return (
     <div className={styles["dashboard"]}>
@@ -57,13 +64,13 @@ const Dashboard: React.FC<DashboardProps> = () => {
             </button>
           </div>
           <ul className={styles["dashboard__users-table-card-wrapper"]}>
-            {usersMockData?.map((user, index) => {
+            {users?.map((user, index) => {
               return (
                 <div key={index + 1}>
                   <UsersTable
                     user={user}
                     handleNavigateToUserDetails={() =>
-                      handleNavigateToUserDetails(user?.id)
+                      handleNavigateToUserDetails(user.id!)
                     }
                   />
                 </div>
