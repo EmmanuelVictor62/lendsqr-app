@@ -25,6 +25,7 @@ export type userType = {
   userName?: string | undefined | null;
   phoneNumber?: string | undefined | null;
   dateJoined?: string | undefined | null;
+  gender?: string | undefined | null;
   status?: string | undefined | null;
   bank?: string | undefined | null;
   accountBalance?: string | undefined | null;
@@ -36,4 +37,9 @@ export type userType = {
   guarantorPhoneNo?: string | undefined | null;
   guarantorRelationship?: string | undefined | null;
   guarantorEmail?: string | undefined | null;
+};
+
+export type UpdateUserType = {
+  id: string | undefined | null;
+  status: string | undefined | null;
 };

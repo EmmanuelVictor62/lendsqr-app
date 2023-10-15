@@ -1,15 +1,13 @@
 import React from "react";
 
 import styles from "./general-details.module.scss";
+import { userType } from "@/types/type";
 
-type DetailsType = {
-  id: string;
-};
 interface DetailsProps {
-  details?: DetailsType;
+  user?: userType;
 }
 
-const GeneralDetails: React.FC<DetailsProps> = () => {
+const GeneralDetails: React.FC<DetailsProps> = ({ user }) => {
   return (
     <div className={styles["general-details__container"]}>
       <p className={styles["general-details__heading"]}>Personal Information</p>
@@ -18,23 +16,31 @@ const GeneralDetails: React.FC<DetailsProps> = () => {
           <p className={styles["general-details__content-heading"]}>
             Full Name
           </p>
-          <p className={styles["general-details__content"]}>Grace Effion</p>
+          <p className={styles["general-details__content"]}>
+            {user?.userName ? user?.userName : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Phone Number
           </p>
-          <p className={styles["general-details__content"]}>07060780922</p>
+          <p className={styles["general-details__content"]}>
+            {user?.phoneNumber ? user?.phoneNumber : "N/A"}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Email Address
           </p>
-          <p className={styles["general-details__content"]}>grace@gmail.com</p>
+          <p className={styles["general-details__content"]}>
+            {user?.officeEmail ? user?.officeEmail : "N/A"}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>Gender</p>
-          <p className={styles["general-details__content"]}>Female</p>
+          <p className={styles["general-details__content"]}>
+            {user?.gender ? user?.gender : "N/A"}{" "}
+          </p>
         </div>
       </div>
 
@@ -44,26 +50,32 @@ const GeneralDetails: React.FC<DetailsProps> = () => {
           <p className={styles["general-details__content-heading"]}>
             Level of Education
           </p>
-          <p className={styles["general-details__content"]}>B.Sc</p>
+          <p className={styles["general-details__content"]}>
+            {user?.educationLevel ? user?.educationLevel : "N/A"}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Employment Status
           </p>
-          <p className={styles["general-details__content"]}>Employed</p>
+          <p className={styles["general-details__content"]}>
+            {user?.employmentStatus ? user?.employmentStatus : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Sector Of Employment
           </p>
-          <p className={styles["general-details__content"]}>FinTech</p>
+          <p className={styles["general-details__content"]}>
+            {user?.employementSector ? user?.employementSector : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Office Email
           </p>
           <p className={styles["general-details__content"]}>
-            grace@lendsqr.com
+            {user?.officeEmail ? user?.officeEmail : "N/A"}
           </p>
         </div>
       </div>
@@ -74,30 +86,38 @@ const GeneralDetails: React.FC<DetailsProps> = () => {
           <p className={styles["general-details__content-heading"]}>
             Full Name
           </p>
-          <p className={styles["general-details__content"]}>Grace Effion</p>
+          <p className={styles["general-details__content"]}>
+            {user?.guarantor ? user?.guarantor : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Phone Number
           </p>
-          <p className={styles["general-details__content"]}>07060780922</p>
+          <p className={styles["general-details__content"]}>
+            {user?.guarantorPhoneNo ? user?.guarantorPhoneNo : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Relationship
           </p>
-          <p className={styles["general-details__content"]}>Sister</p>
+          <p className={styles["general-details__content"]}>
+            {user?.guarantorRelationship ? user?.guarantorRelationship : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>Gender</p>
-          <p className={styles["general-details__content"]}>Female</p>
+          <p className={styles["general-details__content"]}>
+            {user?.gender ? user?.gender : "N/A"}{" "}
+          </p>
         </div>
         <div className={styles["general-details__content-container"]}>
           <p className={styles["general-details__content-heading"]}>
             Office Email
           </p>
           <p className={styles["general-details__content"]}>
-            guarantor@lendsqr.com
+            {user?.guarantorEmail ? user?.guarantorEmail : "N/A"}
           </p>
         </div>
       </div>

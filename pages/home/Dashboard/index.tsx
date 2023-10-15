@@ -7,24 +7,22 @@ import UsersTable from "./UsersTable";
 import Icon from "@/components/Icon";
 
 import { userSlice } from "@/state_manager/selectors";
+import { getUserThunk } from "@/thunks/user";
 
 import styles from "./dashboard.module.scss";
 
-interface DashboardProps {
-  name?: string;
-}
-
-const Dashboard: React.FC<DashboardProps> = () => {
+const Dashboard: React.FC = () => {
   const dispatch = useDispatch<Dispatch<any>>();
   const navigate = useNavigate();
 
   const { loading, users } = useSelector(userSlice);
 
   const handleNavigateToUserDetails = (userId: string) => {
+    dispatch(getUserThunk(userId));
     navigate(`/home/users/details/:${userId}`);
   };
 
-  console.log(loading, dispatch);
+  console.log("Home loading", loading);
 
   return (
     <div className={styles["dashboard"]}>

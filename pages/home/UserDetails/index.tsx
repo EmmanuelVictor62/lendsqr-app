@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
 
 import Icon from "@/components/Icon";
 import Tab from "@/components/Tab";
 
 import GeneralDetails from "./GeneralDetails";
+
+import { userSlice } from "@/state_manager/selectors";
 import { TabHeaderType } from "@/types/type";
 
 import styles from "./user-details.module.scss";
-interface UserDetailsProps {
-  name?: string;
-}
+import { updateUserStatusThunk } from "@/thunks/user";
 
-const UserDetails: React.FC<UserDetailsProps> = () => {
+const UserDetails: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch<Dispatch<any>>();
+  const { loading, user } = useSelector(userSlice);
 
-  const handleBackToDashboard = () => {
+  const handleBackToDashboard = (userId: string, userStatus: string) => {
+    dispatch(updateUserStatusThunk({ id: userId, status: userStatus }));
     navigate("/home");
+  };
+
+  const handleUpdateUserStatus = (userId: string, userStatus: string) => {
+    dispatch(updateUserStatusThunk({ id: userId, status: userStatus }));
   };
 
   const handleActiveTab = (tabIndex: number) => {
@@ -26,18 +35,20 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
   };
 
   const TabList: Record<TabHeaderType, JSX.Element> = {
-    "General Details": <GeneralDetails />,
+    "General Details": <GeneralDetails user={user} />,
     Documents: <p>Add a new document</p>,
     Loans: <p>This is the loan tab</p>,
   };
 
   const tabContent = Object.values(TabList);
 
+  console.log("UserDetailsLoading", loading);
+
   return (
     <div className={styles["user-details__wrapper"]}>
       <button
         className={styles["user-details__button"]}
-        onClick={handleBackToDashboard}
+        onClick={() => handleBackToDashboard(user?.id!, user?.status!)}
       >
         <Icon icon="arrowLeft" />
         Back to Users
@@ -46,10 +57,16 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
       <div className={styles["user-details__heading-container"]}>
         <h2 className={styles["user-details__heading"]}>User Details</h2>
         <div className={styles["user-details__heading-button-container"]}>
-          <button className={styles["user-details__heading-button--blacklist"]}>
+          <button
+            className={styles["user-details__heading-button--blacklist"]}
+            onClick={() => handleUpdateUserStatus(user?.id!, "Inactive")}
+          >
             Blacklist User
           </button>
-          <button className={styles["user-details__heading-button--activate"]}>
+          <button
+            className={styles["user-details__heading-button--activate"]}
+            onClick={() => handleUpdateUserStatus(user?.id!, "Active")}
+          >
             Activate User
           </button>
         </div>
@@ -64,18 +81,18 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
           </div>
           <div className={styles["user-details__preview-name-container"]}>
             <h2 className={styles["user-details__preview-name"]}>
-              Grace Effiom
+              {user?.userName}
             </h2>
             <p className={styles["user-details__preview-name-id"]}>
-              LSQFf587g90
+              id: {user?.id}
             </p>
           </div>
           <div className={styles["user-details__preview-account-container"]}>
             <h2 className={styles["user-details__preview-account-balance"]}>
-              #200,000
+              ${user?.accountBalance}
             </h2>
             <p className={styles["user-details__preview-account-bank"]}>
-              Providus Bank
+              Bank: {user?.bank}
             </p>
           </div>
         </div>

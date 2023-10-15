@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { allUserListType } from "@/types/type";
+import { allUserListType, UpdateUserType, userType } from "@/types/type";
 
 interface UserProps {
   users: allUserListType;
-  user: {};
+  user: userType;
   loading: boolean;
   error: boolean;
   activity: boolean;
@@ -12,7 +12,7 @@ interface UserProps {
 
 const initialState: UserProps = {
   users: [],
-  user: {},
+  user: { id: "" },
   loading: false,
   error: false,
   activity: false,
@@ -42,8 +42,28 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = false;
     },
+    getUser: (state, { payload }: PayloadAction<userType>) => {
+      state.user = payload;
+      state.loading = false;
+      state.error = false;
+    },
+    updateUserStatus: (state, { payload }: PayloadAction<UpdateUserType>) => {
+      const userIndex = state.users.findIndex((user) => user.id === payload.id);
+      if (userIndex !== -1) {
+        state.users[userIndex].status = payload.status;
+      }
+      state.loading = false;
+      state.error = false;
+    },
   },
 });
 
-export const { loading, error, activity, listAllUsers } = userSlice.actions;
+export const {
+  loading,
+  error,
+  activity,
+  listAllUsers,
+  getUser,
+  updateUserStatus,
+} = userSlice.actions;
 export default userSlice.reducer;
