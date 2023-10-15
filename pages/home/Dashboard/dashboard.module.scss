@@ -66,6 +66,12 @@
         overflow: auto;
         @include custom-scrollbar-thin;
       }
+      &-loader-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 15px;
+      }
     }
   }
 }

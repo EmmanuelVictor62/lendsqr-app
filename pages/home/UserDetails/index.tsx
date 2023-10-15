@@ -8,11 +8,11 @@ import Tab from "@/components/Tab";
 
 import GeneralDetails from "./GeneralDetails";
 
-import { userSlice } from "@/state_manager/selectors";
 import { TabHeaderType } from "@/types/type";
+import { userSlice } from "@/state_manager/selectors";
+import { updateUserStatusThunk } from "@/thunks/user";
 
 import styles from "./user-details.module.scss";
-import { updateUserStatusThunk } from "@/thunks/user";
 
 const UserDetails: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);

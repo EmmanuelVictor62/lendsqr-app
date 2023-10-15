@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Icon from "@/components/Icon";
+
 import { userType } from "@/types/type";
 
 import styles from "./users-table.module.scss";

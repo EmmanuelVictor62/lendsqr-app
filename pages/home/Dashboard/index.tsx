@@ -10,6 +10,7 @@ import { userSlice } from "@/state_manager/selectors";
 import { getUserThunk } from "@/thunks/user";
 
 import styles from "./dashboard.module.scss";
+import { AllLoader } from "@/components/Loader";
 
 const Dashboard: React.FC = () => {
   const dispatch = useDispatch<Dispatch<any>>();
@@ -62,18 +63,26 @@ const Dashboard: React.FC = () => {
             </button>
           </div>
           <ul className={styles["dashboard__users-table-card-wrapper"]}>
-            {users?.map((user, index) => {
-              return (
-                <div key={index + 1}>
-                  <UsersTable
-                    user={user}
-                    handleNavigateToUserDetails={() =>
-                      handleNavigateToUserDetails(user.id!)
-                    }
-                  />
-                </div>
-              );
-            })}
+            {loading ? (
+              <div
+                className={styles["dashboard__users-table-card-loader-wrapper"]}
+              >
+                <AllLoader />
+              </div>
+            ) : (
+              users?.map((user, index) => {
+                return (
+                  <div key={index + 1}>
+                    <UsersTable
+                      user={user}
+                      handleNavigateToUserDetails={() =>
+                        handleNavigateToUserDetails(user.id!)
+                      }
+                    />
+                  </div>
+                );
+              })
+            )}
           </ul>
         </div>
       </div>
